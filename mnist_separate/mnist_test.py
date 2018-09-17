@@ -33,7 +33,7 @@ def mnsit_test(mnist):
                 #加载模型
                 saver.restore(sess, ckpt.model_checkpoint_path)
                 #通过文件名得到模型保存时的迭代轮数
-                global_step = ckpt.model_checkpoint_path.split('/')[-1].split('-')[-1]
+                global_step = ckpt.model_checkpoint_path.split('-')[-1]
                 accuracy_score = sess.run(accuracy, feed_dict=validate_feed)
                 print("After %s traning step(s), validation accuracy=%g" % (global_step, accuracy_score))
             else:
